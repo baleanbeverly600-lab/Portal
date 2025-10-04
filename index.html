@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Authentication Container -->
+    <div class="auth-container" id="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h1 id="student-portal-title">Student Portal</h1>
+                <p>Access your academic information</p>
+            </div>
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="login-tab">Login</div>
+                <div class="auth-tab" id="signup-tab">Sign Up</div>
+            </div>
+            
+            <!-- Login Form -->
+            <form class="auth-form active" id="login-form">
+                <div class="form-group">
+                    <label for="login-name">Name</label>
+                    <input type="text" id="login-name" class="form-control" placeholder="Enter your name">
+                    <div class="error-message" id="login-name-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" class="form-control" placeholder="Enter your password">
+                    <div class="error-message" id="login-password-error"></div>
+                </div>
+                <button type="button" class="btn" id="login-btn">Login</button>
+            </form>
+            
+            <!-- Signup Form -->
+            <form class="auth-form" id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" class="form-control" placeholder="Enter your full name">
+                    <div class="error-message" id="signup-name-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-student-number">Student Number</label>
+                    <input type="text" id="signup-student-number" class="form-control" placeholder="Enter your student number">
+                    <div class="error-message" id="signup-student-number-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-course">Course</label>
+                    <select id="signup-course" class="form-control">
+                        <option value="">Select your course</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Business Administration">Business Administration</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Psychology">Psychology</option>
+                    </select>
+                    <div class="error-message" id="signup-course-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-year">Year</label>
+                    <select id="signup-year" class="form-control">
+                        <option value="">Select your year</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="4th Year">4th Year</option>
+                    </select>
+                    <div class="error-message" id="signup-year-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" class="form-control" placeholder="Create a password">
+                    <div class="error-message" id="signup-password-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" class="form-control" placeholder="Confirm your password">
+                    <div class="error-message" id="signup-confirm-password-error"></div>
+                </div>
+                <button type="button" class="btn" id="signup-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Portal Container -->
+    <div class="portal-container" id="portal-container">
+        <div class="container">
+            <div class="header">
+                <span class="header-title">Student Portal</span>
+                <div class="theme-selector">
+                    <button class="theme-btn active" data-theme="light">Light</button>
+                    <button class="theme-btn" data-theme="dark">Dark</button>
+                    <button class="theme-btn" data-theme="cool">Cool</button>
+                </div>
+            </div>
+            
+            <div class="nav-menu">
+                <div class="nav-item active" data-section="dashboard">Dashboard</div>
+                <div class="nav-item" data-section="schedule">Class Schedule</div>
+                <div class="nav-item" data-section="grades">Grades</div>
+                <div class="nav-item" data-section="records">Student Record</div>
+                <div class="nav-item" data-section="ledger">Student Ledger</div>
+                <div class="nav-item logout-btn" id="logout-btn">Log Out</div>
+            </div>
+            
+            <div class="content-area">
+                <!-- Dashboard Section -->
+                <div class="content-section active" id="dashboard-section">
+                    <div class="dashboard-welcome">
+                        <h2 id="welcome-message">Welcome to Your Portal!</h2>
+                        <p>You can access all your academic information from here.</p>
+                    </div>
+                </div>
+                
+                <!-- Class Schedule Section -->
+                <div class="content-section" id="schedule-section">
+                    <h2>Class Schedule</h2>
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Room</th>
+                                <th>Instructor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="schedule-body">
+                            <!-- Schedule data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Grades Section -->
+                <div class="content-section" id="grades-section">
+                    <h2>Grades</h2>
+                    <table class="grades-table">
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Prelim</th>
+                                <th>Midterm</th>
+                                <th>Final</th>
+                                <th>Overall</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody id="grades-body">
+                            <!-- Grades data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Student Record Section -->
+                <div class="content-section" id="records-section">
+                    <h2>Student Record</h2>
+                    <div class="student-info-card">
+                        <div class="info-grid" id="student-info">
+                            <!-- Student information will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    <table class="records-table">
+                        <thead>
+                            <tr>
+                                <th>Academic Year</th>
+                                <th>Year</th>
+                                <th>Semester</th>
+                                <th>Status</th>
+                                <th>Units</th>
+                                <th>GWA</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records-body">
+                            <!-- Records data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Student Ledger Section -->
+                <div class="content-section" id="ledger-section">
+                    <h2>Student Ledger</h2>
+                    <div class="payment-summary">
+                        <h3>Payment Summary</h3>
+                        <div class="summary-grid">
+                            <div class="summary-item">
+                                <div class="summary-label">Total Amount</div>
+                                <div class="summary-value" id="total-amount">₱25,000</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Amount Paid</div>
+                                <div class="summary-value" id="amount-paid">₱15,000</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Balance</div>
+                                <div class="summary-value" id="balance">₱10,000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="ledger-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ledger-body">
+                            <!-- Ledger data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
